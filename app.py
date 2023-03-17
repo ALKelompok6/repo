@@ -35,8 +35,3 @@ def run_query(query):
 sheet_url = st.secrets["private_gsheets_url"]
 rows = run_query(f'SELECT * FROM "{https://docs.google.com/spreadsheets/d/1lGqAx7sDL0B-nAl1Tlh3aPLWAYfcFdVSS_Y9_aU4VJc/edit?usp=sharing}"')
 
-# Print results.
-for row in rows:
-    st.write(f"{row.jenis} has a :{row.nama}:")
-
-st.title("Data Pelatihan Jarak Jauh 2021 dan 2022")
