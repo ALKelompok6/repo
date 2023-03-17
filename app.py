@@ -37,6 +37,6 @@ rows = run_query(f'SELECT * FROM "{https://docs.google.com/spreadsheets/d/1lGqAx
 
 # Print results.
 for row in rows:
-    st.write(f"{row.JENIS} has a :{row.NAMA}:")
+    st.write(f"{row.jenis} has a :{row.nama}:")
 
 st.title("Data Pelatihan Jarak Jauh 2021 dan 2022")
