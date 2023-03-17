@@ -12,7 +12,6 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 # Utils
 import joblib
 
-import streamlit as st
 from google.oauth2 import service_account
 from gsheetsdb import connect
 
