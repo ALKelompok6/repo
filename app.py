@@ -24,3 +24,4 @@ df = load_data(st.secrets["public_gsheets_url"])
 # Print results.
 for row in df.itertuples():
     st.write(f"{row.name} has a :{row.pet}:")
+st.title("Data Pelatihan Jarak Jauh 2021 dan 2022")
