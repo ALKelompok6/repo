@@ -19,7 +19,7 @@ def load_data(sheets_url):
     csv_url = sheets_url.replace("/edit#gid=", "/export?format=csv&gid=")
     return pd.read_csv(csv_url)
 
-df = load_data(st.secrets["https://docs.google.com/spreadsheets/d/1lGqAx7sDL0B-nAl1Tlh3aPLWAYfcFdVSS_Y9_aU4VJc/edit#gid=0"])
+df = load_data(st.secrets["https://docs.google.com/spreadsheets/d/1ZbSoBVO9Z5hC88Gs06DJCSzo7fufr317ZbqmM6lCUMw/edit?usp=sharing"])
 
 # Print results.
 for row in df.itertuples():
