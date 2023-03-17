@@ -65,3 +65,4 @@ urllib3==1.26.14
 validators==0.20.0
 watchdog==2.3.1
 zipp==3.15.0
+gsheetsdb==0.1.13.1
