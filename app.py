@@ -12,18 +12,32 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 # Utils
 import joblib
 
-private_gsheets_url = "https://docs.google.com/spreadsheets/d/1lGqAx7sDL0B-nAl1Tlh3aPLWAYfcFdVSS_Y9_aU4VJc/edit?usp=sharing"
+import streamlit as st
+from google.oauth2 import service_account
+from gsheetsdb import connect
 
-[gcp_service_account]
-type = "service_account"
-project_id = "xxx"
-private_key_id = "xxx"
-private_key = "xxx"
-client_email = "xxx"
-client_id = "xxx"
-auth_uri = "https://accounts.google.com/o/oauth2/auth"
-token_uri = "https://oauth2.googleapis.com/token"
-auth_provider_x509_cert_url = "https://www.googleapis.com/oauth2/v1/certs"
-client_x509_cert_url = "xxx"
+# Create a connection object.
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"],
+    scopes=[
+        "https://www.googleapis.com/auth/spreadsheets",
+    ],
+)
+conn = connect(credentials=credentials)
+
+# Perform SQL query on the Google Sheet.
+# Uses st.cache_data to only rerun when the query changes or after 10 min.
+@st.cache_data(ttl=600)
+def run_query(query):
+    rows = conn.execute(query, headers=1)
+    rows = rows.fetchall()
+    return rows
+
+sheet_url = st.secrets["private_gsheets_url"]
+rows = run_query(f'SELECT * FROM "{https://docs.google.com/spreadsheets/d/1lGqAx7sDL0B-nAl1Tlh3aPLWAYfcFdVSS_Y9_aU4VJc/edit#gid=0}"')
+
+# Print results.
+for row in rows:
+    st.write(f"{row.name} has a :{row.pet}:")
 
 st.title("Data Pelatihan Jarak Jauh 2021 dan 2022")
