@@ -16,10 +16,10 @@ import joblib
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
 @st.cache_data(ttl=600)
 def load_data(sheets_url):
-    csv_url = sheets_url.replace("https://docs.google.com/spreadsheets/d/1lGqAx7sDL0B-nAl1Tlh3aPLWAYfcFdVSS_Y9_aU4VJc/edit#gid=0", "/export?format=csv&gid=")
+    csv_url = sheets_url.replace("https://docs.google.com/spreadsheets/d/1lGqAx7sDL0B-nAl1Tlh3aPLWAYfcFdVSS_Y9_aU4VJc/edit#gid=0", "/export?format=csv&gid=0")
     return pd.read_csv(csv_url)
 
-df = load_data(st.secrets["public_gsheets_url"])
+df = load_data(st.secrets["https://docs.google.com/spreadsheets/d/1lGqAx7sDL0B-nAl1Tlh3aPLWAYfcFdVSS_Y9_aU4VJc/edit?usp=sharing"])
 
 # Print results.
 for row in df.itertuples():
