@@ -12,16 +12,5 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 # Utils
 import joblib
 
-# Read in data from the Google Sheet.
-# Uses st.cache_data to only rerun when the query changes or after 10 min.
-@st.cache_data(ttl=600)
-def load_data(sheets_url):
-    csv_url = sheets_url.replace("/edit#gid=", "/export?format=csv&gid=")
-    return pd.read_csv(csv_url)
 
-df = load_data(st.secrets["https://docs.google.com/spreadsheets/d/1lGqAx7sDL0B-nAl1Tlh3aPLWAYfcFdVSS_Y9_aU4VJc/edit#gid=0"])
-
-# Print results.
-for row in df.itertuples():
-    st.write(f"{row.name} has a :{row.pet}:")
 st.title("Data Pelatihan Jarak Jauh 2021 dan 2022")
