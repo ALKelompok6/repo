@@ -16,7 +16,7 @@ import joblib
 # Image
 from PIL import Image
 
-st.sidebar.title("Analytics Web Application")
+st.sidebar.title("Mana nih, katanya berubah")
 menu = ["EDA","Classification"]
 choice = st.sidebar.selectbox("Select Menu", menu)
 if choice == "EDA":
