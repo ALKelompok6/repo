@@ -28,9 +28,9 @@ st.title("Data Pelatihan 2021 dan 2022 Pusat Pendidikan dan Pelatihan Kepemimpin
 st.dataframe(df.head())
 
 st.subheader('INDEKS KESESUAIAN MATERI')
-chart_data = df(
-    'NAMA PELATIHAN',
-    columns=['KESESUAIAN MATERI', 'RENCANA PESERTA', 'TOTAL REALISASI PESERTA'])
+chart_data = pd.DataFrame(
+    df('NAMA PELATIHAN',
+    columns=['KESESUAIAN MATERI', 'RENCANA PESERTA', 'TOTAL REALISASI PESERTA']))
 st.line_chart(chart_data)
 
 st.subheader('RENCANA PESERTA')
