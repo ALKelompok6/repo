@@ -29,8 +29,7 @@ st.dataframe(df.head())
 
 st.subheader('INDEKS KESESUAIAN MATERI')
 chart_data = pd.DataFrame(
-    df('NAMA PELATIHAN',
-    columns=['KESESUAIAN MATERI', 'RENCANA PESERTA', 'TOTAL REALISASI PESERTA']))
+    df['RENCANA PESERTA'])
 st.line_chart(chart_data)
 
 st.subheader('RENCANA PESERTA')
