@@ -26,7 +26,9 @@ def load_data(sheets_url):
 df = load_data(st.secrets["public_gsheets_url"])
 
 st.title("Data Pelatihan 2021 dan 2022 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
-#   columns_to_plot = st.selectbox("Select Column for Pie Chart", all_columns)
-    pie_plot = df['KESESUAIAN MATERI'].value_counts().plot.pie(autopct="%1.1f%%")
-    st.write(pie_plot)
+st.dataframe(df.head())
+    all_columns = df.columns.to_list()
+    columns_to_plot = st.selectbox("Select Column for Histogram", all_columns)
+    hist_plot = df[columns_to_plot].plot.hist()
+    st.write(hist_plot)
     st.pyplot()
