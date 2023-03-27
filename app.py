@@ -25,6 +25,5 @@ def load_data(sheets_url):
 
 df = load_data(st.secrets["public_gsheets_url"])
 
-# Print results.
-for row in df.itertuples():
-    st.write(df.shape)
+st.title("Data Pelatihan 2021 dan 2022 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
+st.write(df.shape)
