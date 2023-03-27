@@ -29,7 +29,7 @@ st.dataframe(df.head())
 
 st.subheader('INDEKS KESESUAIAN MATERI')
 chart_data = pd.DataFrame(
-    df['NAMA PELATIHAN', 5],
+    np.random.randn(20, 3),
     columns=df['KESESUAIAN MATERI'])
 st.line_chart(chart_data)
 
