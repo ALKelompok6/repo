@@ -9,7 +9,6 @@ import numpy as np
 import seaborn as sns
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-#coba
 # Utils
 import joblib
 
@@ -28,7 +27,7 @@ df = load_data(st.secrets["public_gsheets_url"])
 st.title("Data Pelatihan 2021 dan 2022 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
 st.dataframe(df.head())
 
-    all_columns = df.columns.to_list()
-    columns_to_plot = st.selectbox("Pilih", all_columns)
-    hist_plot = df[columns_to_plot].plot.hist()
-    st.write(hist_plot)
+all_columns = df.columns.to_list()
+columns_to_plot = st.selectbox("Pilih", all_columns)
+hist_plot = df[columns_to_plot].plot.hist()
+st.write(hist_plot)
