@@ -35,3 +35,8 @@ hist_plot = df['RENCANA PESERTA'].plot.hist()
 st.write(hist_plot)
 st.pyplot()
 
+st.subheader('INDEKS KESESUAIAN MATERI 2')
+chart_data = pd.DataFrame(
+    'NAMA PELATIHAN',
+    columns=['KESESUAIAN MATERI', 'RENCANA PESERTA', 'TOTAL REALISASI PESERTA'])
+st.line_chart(chart_data)
