@@ -26,4 +26,7 @@ def load_data(sheets_url):
 df = load_data(st.secrets["public_gsheets_url"])
 
 st.title("Data Pelatihan 2021 dan 2022 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
-st.write(df.shape)
+#   columns_to_plot = st.selectbox("Select Column for Pie Chart", all_columns)
+    pie_plot = df['KESESUAIAN MATERI'].value_counts().plot.pie(autopct="%1.1f%%")
+    st.write(pie_plot)
+    st.pyplot()
