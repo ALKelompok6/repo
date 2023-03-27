@@ -27,8 +27,8 @@ df = load_data(st.secrets["public_gsheets_url"])
 st.title("Data Pelatihan 2021 dan 2022 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
 st.dataframe(df.head())
 
-st.subheader('INDEKS KESESUAIAN MATERI')
-st.line_chart(data=df,  x='NAMA PELATIHAN', y='KESESUAIAN MATERI', 'RENCANA PESERTA', 'TOTAL REALISASI PESERTA', width=0, height=0, use_container_width=True)
+st.subheader('REALISASI PESERTA')
+st.line_chart(data=df,  x='NAMA', y='TOTAL REALISASI PESERTA', width=0, height=0, use_container_width=True)
 
 st.subheader('RENCANA PESERTA')
 hist_plot = df['RENCANA PESERTA'].plot.hist()
