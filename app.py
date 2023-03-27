@@ -28,10 +28,7 @@ st.title("Data Pelatihan 2021 dan 2022 Pusat Pendidikan dan Pelatihan Kepemimpin
 st.dataframe(df.head())
 
 st.subheader('INDEKS KESESUAIAN MATERI')
-chart_data = pd.DataFrame(
-    np.random.randn(20, 3),
-    columns=df['KESESUAIAN MATERI'])
-st.line_chart(chart_data)
+st.line_chart(data=df,  x='NAMA PELATIHAN', y='KESESUAIAN MATERI', width=0, height=0, use_container_width=True)
 
 st.subheader('RENCANA PESERTA')
 hist_plot = df['RENCANA PESERTA'].plot.hist()
