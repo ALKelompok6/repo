@@ -27,4 +27,4 @@ df = load_data(st.secrets["public_gsheets_url"])
 
 # Print results.
 for row in df.itertuples():
-    st.write(f"{row.nama_pelatihan} has a :{row.tanggal_mulai}:")
+    st.write('Hello, *World!* :sunglasses:')
