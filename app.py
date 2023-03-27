@@ -27,4 +27,4 @@ df = load_data(st.secrets["public_gsheets_url"])
 
 # Print results.
 for row in df.itertuples():
-    st.write('Hello, *World!* :sunglasses:')
+    st.write(df.shape)
