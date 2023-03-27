@@ -28,12 +28,13 @@ st.title("Data Pelatihan 2021 dan 2022 Pusat Pendidikan dan Pelatihan Kepemimpin
 st.dataframe(df.head())
 
 st.subheader('INDEKS KESESUAIAN MATERI')
-chart_data = df['NAMA PELATIHAN', 'KESESUAIAN MATERI', 'RENCANA PESERTA', 'TOTAL REALISASI PESERTA']
-st.write(chart_data)
+chart_data = pd.DataFrame(
+    'NAMA PELATIHAN',
+    columns=['KESESUAIAN MATERI', 'RENCANA PESERTA', 'TOTAL REALISASI PESERTA'])
 st.line_chart(chart_data)
 
 st.subheader('RENCANA PESERTA')
 hist_plot = df['RENCANA PESERTA'].plot.hist()
 st.write(hist_plot)
-st.pyplot(hist_plot)
+st.pyplot()
 
