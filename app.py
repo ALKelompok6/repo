@@ -44,14 +44,14 @@ elif choice == "2022":
 
 st.subheader('TOTAL RENCANA VS REALISASI PESERTA PER TAHUN')
 realisasi_peserta_by_tahun = (
-	df.groupby(by=['TAHUN']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='TAHUN')
+	df.query(" `TAHUN` == 2.021 ").groupby(by=['TAHUN']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='TAHUN')
 )
 st.dataframe(realisasi_peserta_by_tahun, width=1360)
 st.bar_chart(data=realisasi_peserta_by_tahun, x=['TAHUN'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
 
 st.subheader('TOTAL RENCANA VS REALISASI PESERTA PER NAMA PELATIHAN')
 realisasi_peserta_by_nama = (
-	df.groupby(by=['NAMA']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
+	df.query(" `TAHUN` == 2.021 ").groupby(by=['NAMA']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
 )
 st.dataframe(realisasi_peserta_by_nama)
 st.bar_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
