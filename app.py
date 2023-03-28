@@ -76,7 +76,7 @@ fig.add_trace(
 )
 # Line Chart
 fig.add_trace(
-    go.Scatter(x=df['NAMA'], y=df['TOTAL REALISASI PESERTA'], name="Life Expectancy"),
+    go.Scatter(x=df['NAMA'], y=df['RENCANA PESERTA'], name="Life Expectancy"),
     secondary_y=True,
 )
 
