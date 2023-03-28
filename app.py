@@ -38,26 +38,12 @@ df = load_data(st.secrets["public_gsheets_url"])
 #    default=df['TAHUN'].unique()
 #)
 
-total_rencana = int(df['RENCANA PESERTA'].sum())
-total_peserta = int(df['TOTAL REALISASI PESERTA'].sum())
-total_jamlator = int(df['TOTAL JAMLATOR'].sum())
-rerata_seseusaian_materi = round(df['KESESUAIAN MATERI'].mean(), 2)
-indeks_bintang =':star:' * int(round(rerata_seseusaian_materi, 0))
-
-
-col1, col2, col3, col4 = st.columns(4)
-with col1:
-    st.subheader('RENCANA PESERTA')
-    st.subheader(f"{total_rencana:,}")
-with col2:
-    st.subheader('TOTAL REALISASI PESERTA')
-    st.subheader(f"{total_jamlator:,}")
-with col3:
-    st.subheader('TOTAL JAMLATOR')
-    st.subheader(f"{total_peserta:,}")
-with col4:
-    st.subheader('KESESUAIAN MATERI')
-    st.subheader(f"{rerata_seseusaian_materi:,} {indeks_bintang}")
+#rencana (nama + tanggal + hari + JP + rencana peserta + rencana JP)
+#realisasi peserta (per UE1 + total)
+#realisasi jamlator (per UE1 + total)
+#evaluasi penyelenggaraan pembelajaran (kesesuaian materi)
+#evaluasi hasil pembelajaran (status keikutsertaan)
+#realisasi jamlator (per UE1 + total) RENCANA VS REALISASI
 
 st.sidebar.header('Tahun')
 menu = ["2021","2022"]
@@ -65,6 +51,27 @@ choice = st.sidebar.selectbox("Pilih Tahun", menu)
 
 if choice == "2021":
     st.title("Data Pelatihan 2021 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
+    total_rencana = int(df.query(" `TAHUN` == '2,021' ")['RENCANA PESERTA'].sum())
+    total_peserta = int(df.query(" `TAHUN` == '2,021' ")['TOTAL REALISASI PESERTA'].sum())
+    total_jamlator = int(df.query(" `TAHUN` == '2,021' ")['TOTAL JAMLATOR'].sum())
+    rerata_seseusaian_materi = round(df.query(" `TAHUN` == '2,021' ")['KESESUAIAN MATERI'].mean(), 2)
+    indeks_bintang =':star:' * int(round(rerata_seseusaian_materi, 0))
+
+
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.subheader('RENCANA PESERTA')
+        st.subheader(f"{total_rencana:,}")
+    with col2:
+        st.subheader('TOTAL REALISASI PESERTA')
+        st.subheader(f"{total_jamlator:,}")
+    with col3:
+        st.subheader('TOTAL JAMLATOR')
+        st.subheader(f"{total_peserta:,}")
+    with col4:
+        st.subheader('KESESUAIAN MATERI')
+        st.subheader(f"{rerata_seseusaian_materi:,} {indeks_bintang}")
+
     st.dataframe(df.query(" `TAHUN` == '2,021' "))
 
     st.subheader('TOTAL RENCANA VS REALISASI PESERTA PER NAMA PELATIHAN')
@@ -97,6 +104,26 @@ if choice == "2021":
 
 elif choice == "2022":
     st.subheader("Data Pelatihan 2022 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
+    total_rencana = int(df.query(" `TAHUN` == '2,022' ")['RENCANA PESERTA'].sum())
+    total_peserta = int(df.query(" `TAHUN` == '2,022' ")['TOTAL REALISASI PESERTA'].sum())
+    total_jamlator = int(df.query(" `TAHUN` == '2,022' ")['TOTAL JAMLATOR'].sum())
+    rerata_seseusaian_materi = round(df.query(" `TAHUN` == '2,022' ")['KESESUAIAN MATERI'].mean(), 2)
+    indeks_bintang =':star:' * int(round(rerata_seseusaian_materi, 0))
+
+
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.subheader('RENCANA PESERTA')
+        st.subheader(f"{total_rencana:,}")
+    with col2:
+        st.subheader('TOTAL REALISASI PESERTA')
+        st.subheader(f"{total_jamlator:,}")
+    with col3:
+        st.subheader('TOTAL JAMLATOR')
+        st.subheader(f"{total_peserta:,}")
+    with col4:
+        st.subheader('KESESUAIAN MATERI')
+        st.subheader(f"{rerata_seseusaian_materi:,} {indeks_bintang}")    
     st.dataframe(df.query(" `TAHUN` == '2,022' "))
 
     st.subheader('TOTAL RENCANA VS REALISASI PESERTA PER NAMA PELATIHAN')
