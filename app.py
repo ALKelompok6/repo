@@ -37,7 +37,7 @@ choice = st.sidebar.selectbox("Pilih Tahun", menu)
 
 if choice == "2021":
     st.title("Data Pelatihan 2021 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
-    st.dataframe(df)
+    st.dataframe(df.query(" `TAHUN` == '2.021' "))
 elif choice == "2022":
     st.subheader("Data Pelatihan 2022 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
     st.dataframe(df.query(" `TAHUN` == '2022' "))
