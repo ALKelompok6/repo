@@ -72,7 +72,7 @@ if choice == "2021":
         st.subheader('KESESUAIAN MATERI')
         st.subheader(f"{rerata_seseusaian_materi:,} {indeks_bintang}")
 
-    st.dataframe(df['NAMA PELATIHAN', 'TAHUN'].query(" `TAHUN` == '2,021' "))
+    st.dataframe(df['NAMA PELATIHAN', 'TAHUN'])
 
     st.subheader('TOTAL RENCANA VS REALISASI PESERTA PER NAMA PELATIHAN')
     realisasi_peserta_by_nama = (
@@ -124,7 +124,7 @@ elif choice == "2022":
     with col4:
         st.subheader('KESESUAIAN MATERI')
         st.subheader(f"{rerata_seseusaian_materi:,} {indeks_bintang}")    
-    st.dataframe(df['NAMA PELATIHAN', 'TAHUN'].query(" `TAHUN` == '2,022' "))
+    st.dataframe(df['NAMA PELATIHAN', 'TAHUN'])
 
     st.subheader('TOTAL RENCANA VS REALISASI PESERTA PER NAMA PELATIHAN')
     realisasi_peserta_by_nama = (
