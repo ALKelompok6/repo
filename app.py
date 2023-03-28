@@ -38,6 +38,22 @@ df = load_data(st.secrets["public_gsheets_url"])
 #    default=df['TAHUN'].unique()
 #)
 
+total_rencana = int(df['RENCANA PESERTA'].sum())
+total_peserta = int(df['TOTAL REALISASI PESERTA'].sum())
+rerata_seseusaian_materi =':star:' * round(df['KESESUAIAN MATERI'].mean(), 2)
+#total_jamlator
+
+left_column, middle_column, right_column = st.columns(3)
+with left_column:
+    st.subheader('RENCANA PESERTA')
+    st.subheader(f"{RENCANA PESERTA:,}")
+with middle_column:
+    st.subheader('TOTAL REALISASI PESERTA')
+    st.subheader(f"{RENCANA PESERTA:,}")
+with right_column:
+    st.subheader('KESESUAIAN MATERI')
+    st.subheader(f"{KESESUAIAN MATERI:,}")
+
 st.sidebar.header('Tahun')
 menu = ["2021","2022"]
 choice = st.sidebar.selectbox("Pilih Tahun", menu)
