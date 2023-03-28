@@ -15,6 +15,10 @@ import joblib
 # Image
 from PIL import Image
 
+st.set_page_config(page_title='DATA PELATIHAN JARAH JAUH 2021 DAN 2022',
+	page_icon=':bar_chart:',
+	layout='wide')
+
 # Read in data from the Google Sheet.
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
 @st.cache_data(ttl=600)
