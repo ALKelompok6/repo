@@ -81,6 +81,13 @@ if choice == "2021":
     st.dataframe(realisasi_peserta_by_nama)
     st.line_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
 
+    st.subheader('TOTAL RENCANA VS REALISASI JAMLATOR PER NAMA PELATIHAN')
+    realisasi_jamlator_by_nama = (
+	df.query(" `TAHUN` == '2,021' ").groupby(by=['NAMA']).sum()[['RENCANA JAMLATOR', 'TOTAL JAMLATOR']].sort_values(by='NAMA')
+    )
+    st.dataframe(realisasi_jamlator_by_nama)
+    st.line_chart(data=realisasi_jamlator_by_nama, x=['NAMA'], y=['RENCANA JAMLATOR', 'TOTAL JAMLATOR'], width=0, height=0, use_container_width=True)
+
     st.subheader('INDEKS KESESUAIAN MATERI')
     kesesuaian_materi = (
 	df.query(" `TAHUN` == '2,021' ").groupby(by=['BULAN']).mean()[['KESESUAIAN MATERI']].sort_values(by='BULAN')
@@ -133,6 +140,13 @@ elif choice == "2022":
     )
     st.dataframe(realisasi_peserta_by_nama)
     st.line_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
+
+    st.subheader('TOTAL RENCANA VS REALISASI JAMLATOR PER NAMA PELATIHAN')
+    realisasi_jamlator_by_nama = (
+	df.query(" `TAHUN` == '2,021' ").groupby(by=['NAMA']).sum()[['RENCANA JAMLATOR', 'TOTAL JAMLATOR']].sort_values(by='NAMA')
+    )
+    st.dataframe(realisasi_jamlator_by_nama)
+    st.line_chart(data=realisasi_jamlator_by_nama, x=['NAMA'], y=['RENCANA JAMLATOR', 'TOTAL JAMLATOR'], width=0, height=0, use_container_width=True)
 
     st.subheader('INDEKS KESESUAIAN MATERI')
     kesesuaian_materi = (
