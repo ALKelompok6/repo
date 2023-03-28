@@ -46,13 +46,13 @@ rerata_seseusaian_materi =':star:' * round(df['KESESUAIAN MATERI'].mean(), 2)
 left_column, middle_column, right_column = st.columns(3)
 with left_column:
     st.subheader('RENCANA PESERTA')
-    st.subheader(f"{RENCANA PESERTA:,}")
+    st.subheader(f"{total_rencana:,}")
 with middle_column:
     st.subheader('TOTAL REALISASI PESERTA')
-    st.subheader(f"{RENCANA PESERTA:,}")
+    st.subheader(f"{total_peserta:,}")
 with right_column:
     st.subheader('KESESUAIAN MATERI')
-    st.subheader(f"{KESESUAIAN MATERI:,}")
+    st.subheader(f"{rerata_seseusaian_materi:,}")
 
 st.sidebar.header('Tahun')
 menu = ["2021","2022"]
