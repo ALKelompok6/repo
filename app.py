@@ -3,6 +3,9 @@ import streamlit as st
 import plotly.express as px
 # sklearn version = 0.24.2
 
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
 # EDA Pkgs
 import pandas as pd
 import numpy as np
@@ -54,7 +57,42 @@ st.bar_chart(data=rencana_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA'], wi
 
 st.subheader('TOTAL REALISASI PESERTA PER NAMA PELATIHAN')
 realisasi_peserta_by_nama = (
-	df.groupby(by=['NAMA', 'TAHUN']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='TAHUN')
+	df.groupby(by=['NAMA']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
 )
 st.dataframe(realisasi_peserta_by_nama)
-st.bar_chart(data=realisasi_peserta_by_nama, x=['NAMA', 'TAHUN'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
+st.bar_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
+
+# load dataframe using plotly gapminder sample
+df = px.data.gapminder().query("TAHUN == '2021' ")
+
+# Create figure with secondary y-axis
+fig = make_subplots(specs=[[{"secondary_y": True}]])
+
+# Add traces
+# Bar Chart
+fig.add_trace(
+    go.Bar(x=df['NAMA'], y=df['TOTAL REALISASI PESERTA'], name="GDP"),
+    secondary_y=False,
+)
+# Line Chart
+fig.add_trace(
+    go.Scatter(x=df['NAMA'], y=df['TOTAL REALISASI PESERTA'], name="Life Expectancy"),
+    secondary_y=True,
+)
+
+# Add figure title
+fig.update_layout(
+    title_text="Double Y Axis Example"
+)
+
+# Set x-axis title
+fig.update_xaxes(title_text="xaxis title")
+
+# Set y-axes titles
+fig.update_yaxes(title_text="GDP", secondary_y=False)
+fig.update_yaxes(title_text="Life Expectancy", secondary_y=True)
+
+#fig.show()
+
+#show to streamlit
+st.plotly_chart(fig)
