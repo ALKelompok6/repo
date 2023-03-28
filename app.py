@@ -56,5 +56,5 @@ st.subheader('TOTAL REALISASI PESERTA PER NAMA PELATIHAN')
 realisasi_peserta_by_nama = (
 	df.groupby(by=['NAMA']).sum()[['TOTAL REALISASI PESERTA', 'RENCANA PESERTA']].sort_values(by='TOTAL REALISASI PESERTA')
 )
-#st.dataframe(realisasi_peserta_by_nama)
+st.dataframe(realisasi_peserta_by_nama)
 #st.bar_chart(data=realisasi_peserta_by_nama, x=['TOTAL REALISASI PESERTA'], y=['NAMA'], width=0, height=0, use_container_width=True)
