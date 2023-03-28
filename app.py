@@ -39,7 +39,7 @@ choice = st.sidebar.multiselect(
 )
 
 df_selection = df.query(
-    "Tahun == @choice"
+    "Choice == @choice"
 )
 
 st.dataframe(df_selection)
