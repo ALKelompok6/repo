@@ -40,18 +40,22 @@ df = load_data(st.secrets["public_gsheets_url"])
 
 total_rencana = int(df['RENCANA PESERTA'].sum())
 total_peserta = int(df['TOTAL REALISASI PESERTA'].sum())
+total_jamlator = int(df['TOTAL JAMLATOR'].sum())
 rerata_seseusaian_materi = round(df['KESESUAIAN MATERI'].mean(), 2)
 indeks_bintang =':star:' * int(round(rerata_seseusaian_materi, 0))
-#total_jamlator
 
-left_column, middle_column, right_column = st.columns(3)
-with left_column:
+
+col1, col2, col3, col4 = st.columns(4)
+with col1:
     st.subheader('RENCANA PESERTA')
     st.subheader(f"{total_rencana:,}")
-with middle_column:
+with col2:
     st.subheader('TOTAL REALISASI PESERTA')
+    st.subheader(f"{total_jamlator:,}")
+with col3:
+    st.subheader('TOTAL JAMLATOR')
     st.subheader(f"{total_peserta:,}")
-with right_column:
+with col4:
     st.subheader('KESESUAIAN MATERI')
     st.subheader(f"{rerata_seseusaian_materi:,} {indeks_bintang}")
 
