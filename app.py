@@ -68,3 +68,9 @@ st.bar_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA', '
 # df['Address']=='Kebayoran Lama, Jakarta'
 filter_1 = (df['TAHUN']=='2021')
 df.loc[~filter_1,:]
+
+st.subheader('TOTAL REALISASI PESERTA PER NAMA PELATIHAN 2021')
+realisasi_peserta_by_nama_2021 = (
+	filter_1.groupby(by=['NAMA']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
+)
+st.bar_chart(data=realisasi_peserta_by_nama_2021, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
