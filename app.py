@@ -33,8 +33,6 @@ rencana_peserta_by_tahun = (
 )
 st.dataframe(rencana_peserta_by_tahun, width=1360)
 st.bar_chart(data=rencana_peserta_by_tahun, x=['TAHUN'], y=['RENCANA PESERTA'], width=0, height=0, use_container_width=True)
-#sns.barplot(x=data['Survived'].value_counts().index, y=data['Survived'].value_counts())
-
 
 st.subheader('TOTAL REALISASI PESERTA PER TAHUN')
 realisasi_peserta_by_tahun = (
@@ -42,10 +40,10 @@ realisasi_peserta_by_tahun = (
 )
 st.dataframe(realisasi_peserta_by_tahun, width=1360)
 st.bar_chart(data=realisasi_peserta_by_tahun, x=['TAHUN'], y=['TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
-#sns.barplot(x=data['Survived'].value_counts().index, y=data['Survived'].value_counts())
 
-
-st.subheader('RENCANA PESERTA')
-hist_plot = df['RENCANA PESERTA'].plot.hist()
-st.write(hist_plot)
-st.pyplot()
+st.subheader('TOTAL RENCANA PESERTA PER NAMA PELATIHAN')
+rencana_peserta_by_nama = (
+	df.groupby(by=['NAMA']).sum()[['RENCANA PESERTA']].sort_values(by='NAMA')
+)
+st.dataframe(rencana_peserta_by_nama, width=1760)
+st.bar_chart(data=rencana_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA'], width=0, height=0, use_container_width=True)
