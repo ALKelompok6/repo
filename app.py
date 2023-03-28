@@ -28,7 +28,7 @@ st.title("Data Pelatihan 2021 dan 2022 Pusat Pendidikan dan Pelatihan Kepemimpin
 st.dataframe(df.head())
 
 st.subheader('REALISASI PESERTA')
-st.line_chart(data= df, x='TAHUN', y=df['TOTAL REALISASI PESERTA'].value_counts().index, width=0, height=0, use_container_width=True)
+st.line_chart(data= df, x='TAHUN', y='TOTAL REALISASI PESERTA', width=0, height=0, use_container_width=True)
 
 #sns.barplot(x=data['Survived'].value_counts().index, y=data['Survived'].value_counts())
 
