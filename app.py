@@ -26,6 +26,10 @@ df = load_data(st.secrets["public_gsheets_url"])
 
 st.title("Data Pelatihan 2021 dan 2022 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
 st.dataframe(df, width=1360)
+realisasi_peserta_by_tahun = (
+	df.groupby(by=['TAHUN']).sum()[['TOTAL REALISASI PESERTA']].sort_values(by='TOTAL REALISASI PESERTA')
+)
+st.dataframe(realisasi_peserta_by_tahun, width=1360)
 st.subheader('REALISASI PESERTA')
 st.line_chart(data=df, x='TAHUN', y=['TOTAL REALISASI PESERTA'], width=1360, height=0, use_container_width=True)
 
