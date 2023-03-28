@@ -26,13 +26,15 @@ df = load_data(st.secrets["public_gsheets_url"])
 
 st.title("Data Pelatihan 2021 dan 2022 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
 st.dataframe(df, width=1360)
+
+st.subheader('TOTAL REALISASI PESERTA PER TAHUN')
 realisasi_peserta_by_tahun = (
-	df.groupby(by=['TAHUN']).sum()[['TOTAL REALISASI PESERTA']].sort_values(by='TAHUN')
+	df.groupby(by=['TAHUN']).sum()[['TOTAL REALISASI PESERTA'], ['TOTAL RENCANA PESERTA']].sort_values(by='TAHUN')
 )
 st.dataframe(realisasi_peserta_by_tahun, width=1360)
 st.bar_chart(data=realisasi_peserta_by_tahun, x=['TAHUN'], y=['TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
-title='<b>Total Realisasi Peserta per Tahun</b>'
 #sns.barplot(x=data['Survived'].value_counts().index, y=data['Survived'].value_counts())
+
 
 st.subheader('RENCANA PESERTA')
 hist_plot = df['RENCANA PESERTA'].plot.hist()
