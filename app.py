@@ -62,37 +62,9 @@ realisasi_peserta_by_nama = (
 st.dataframe(realisasi_peserta_by_nama)
 st.bar_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
 
-# load dataframe using plotly gapminder sample
-df = px.data.gapminder().query("TAHUN == '2021' ")
-
-# Create figure with secondary y-axis
-fig = make_subplots(specs=[[{"secondary_y": True}]])
-
-# Add traces
-# Bar Chart
-fig.add_trace(
-    go.Bar(x=df['NAMA'], y=df['TOTAL REALISASI PESERTA'], name="GDP"),
-    secondary_y=False,
-)
-# Line Chart
-fig.add_trace(
-    go.Scatter(x=df['NAMA'], y=df['RENCANA PESERTA'], name="Life Expectancy"),
-    secondary_y=True,
-)
-
-# Add figure title
-fig.update_layout(
-    title_text="Double Y Axis Example"
-)
-
-# Set x-axis title
-fig.update_xaxes(title_text="xaxis title")
-
-# Set y-axes titles
-fig.update_yaxes(title_text="GDP", secondary_y=False)
-fig.update_yaxes(title_text="Life Expectancy", secondary_y=True)
-
-#fig.show()
-
-#show to streamlit
-st.plotly_chart(fig)
+#df = px.data.gapminder().query("country == 'Italy' ")
+#df.loc[:,df.TAHUN == '2021']
+#ambil filter data yang memiliki alamat kebayoran lama 
+# df['Address']=='Kebayoran Lama, Jakarta'
+filter_1 = (df['TAHUN']=='2021')
+df.loc[~filter_1,:]
