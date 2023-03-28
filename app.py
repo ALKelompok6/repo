@@ -37,18 +37,18 @@ choice = st.sidebar.selectbox("Pilih Tahun", menu)
 
 if choice == "2021":
     st.title("Data Pelatihan 2021 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
-    st.dataframe(df.query(" `TAHUN` == 2021 "))
+    st.dataframe(df.query(" `TAHUN` == 2,021 "))
 
     st.subheader('TOTAL RENCANA VS REALISASI PESERTA PER NAMA PELATIHAN')
     realisasi_peserta_by_nama = (
-	df.query(" `TAHUN` == 2021 ").groupby(by=['NAMA']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
+	df.query(" `TAHUN` == 2,021 ").groupby(by=['NAMA']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
     )
     st.dataframe(realisasi_peserta_by_nama)
     st.line_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
 
     st.subheader('INDEKS KESESUAIAN MATERI')
     kesesuaian_materi = (
-	df.query(" `TAHUN` == 2021 ").groupby(by=['NAMA']).sum()[['KESESUAIAN MATERI', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
+	df.query(" `TAHUN` == 2,021 ").groupby(by=['NAMA']).sum()[['KESESUAIAN MATERI', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
     )
     st.dataframe(kesesuaian_materi)
     #st.line_chart(data=kesesuaian_materi, x=['NAMA'], y=['KESESUAIAN MATERI'], width=0, height=0, use_container_width=True)
@@ -61,18 +61,18 @@ if choice == "2021":
     #st.line_chart(data=peserta_per_unit, x=['NAMA'], y=['TELAH MENGIKUTI/LULUS', 'TIDAK MEMENUHI SYARAT', 'MENGUNDURKAN DIRI',	'TIDAK MENGIKUTI'], width=0, height=0, use_container_width=True)    
 elif choice == "2022":
     st.subheader("Data Pelatihan 2022 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
-    st.dataframe(df.query(" `TAHUN` == 2022 "))
+    st.dataframe(df.query(" `TAHUN` == 2,022 "))
 
     st.subheader('TOTAL RENCANA VS REALISASI PESERTA PER NAMA PELATIHAN')
     realisasi_peserta_by_nama = (
-	df.query(" `TAHUN` == 2022 ").groupby(by=['NAMA']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
+	df.query(" `TAHUN` == 2,022 ").groupby(by=['NAMA']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
     )
     st.dataframe(realisasi_peserta_by_nama)
     st.line_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
 
     st.subheader('INDEKS KESESUAIAN MATERI')
     kesesuaian_materi = (
-	df.query(" `TAHUN` == 2022 ").groupby(by=['NAMA']).sum()[['KESESUAIAN MATERI', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
+	df.query(" `TAHUN` == 2,022 ").groupby(by=['NAMA']).sum()[['KESESUAIAN MATERI', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
     )
     st.dataframe(kesesuaian_materi)
     #st.line_chart(data=kesesuaian_materi, x=['NAMA'], y=['KESESUAIAN MATERI'], width=0, height=0, use_container_width=True)
