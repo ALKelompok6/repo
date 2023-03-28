@@ -55,10 +55,10 @@ if choice == "2021":
 
     st.subheader('INDEKS KESESUAIAN MATERI')
     kesesuaian_materi = (
-	df.query(" `TAHUN` == '2,021' ").groupby(by=['NAMA']).mean()[['KESESUAIAN MATERI']].sort_values(by='NAMA')
+	df.query(" `TAHUN` == '2,021' ").groupby(by=['NAMA BULAN']).mean()[['KESESUAIAN MATERI']].sort_values(by='NAMA BULAN')
     )
     st.dataframe(kesesuaian_materi)
-    st.line_chart(data=kesesuaian_materi, x=['NAMA'], y=['KESESUAIAN MATERI'], width=0, height=0, use_container_width=True)
+    st.line_chart(data=kesesuaian_materi, x=['NAMA BULAN'], y=['KESESUAIAN MATERI'], width=0, height=0, use_container_width=True)
 
     st.subheader('PESERTA PER STATUS')
     peserta_per_unit = (
@@ -87,10 +87,10 @@ elif choice == "2022":
 
     st.subheader('INDEKS KESESUAIAN MATERI')
     kesesuaian_materi = (
-	df.query(" `TAHUN` == '2,022' ").groupby(by=['NAMA']).mean()[['KESESUAIAN MATERI']].sort_values(by='NAMA')
+	df.query(" `TAHUN` == '2,022' ").groupby(by=['NAMA BULAN']).mean()[['KESESUAIAN MATERI']].sort_values(by='NAMA BULAN')
     )
     st.dataframe(kesesuaian_materi)
-    st.line_chart(data=kesesuaian_materi, x=['NAMA'], y=['KESESUAIAN MATERI'], width=0, height=0, use_container_width=True)
+    st.line_chart(data=kesesuaian_materi, x=['NAMA BULAN'], y=['KESESUAIAN MATERI'], width=0, height=0, use_container_width=True)
 
     st.subheader('PESERTA PER STATUS')
     peserta_per_unit = (
