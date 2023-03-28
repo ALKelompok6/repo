@@ -55,7 +55,7 @@ if choice == "2021":
 
     st.subheader('PESERTA PER STATUS')
     peserta_per_unit = (
-	df.query(" `TAHUN` == '2,021' ").groupby(by=['NAMA']).sum()[['TELAH MENGIKUTI/LULUS', 'TIDAK MEMENUHI SYARAT', 'MENGUNDURKAN DIRI',	'TIDAK MENGIKUTI', 'TELAH MENGIKUTI/LULUS'/'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
+	df.query(" `TAHUN` == '2,021' ").groupby(by=['NAMA']).sum()[['TELAH MENGIKUTI/LULUS', 'TIDAK MEMENUHI SYARAT', 'MENGUNDURKAN DIRI',	'TIDAK MENGIKUTI']].sort_values(by='NAMA')
     )
     st.dataframe(peserta_per_unit)
     st.line_chart(data=peserta_per_unit, x=['NAMA'], y=['TELAH MENGIKUTI/LULUS', 'TIDAK MEMENUHI SYARAT', 'MENGUNDURKAN DIRI',	'TIDAK MENGIKUTI', 'TELAH MENGIKUTI/LULUS'/'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)    
@@ -79,7 +79,7 @@ elif choice == "2022":
 
     st.subheader('PESERTA PER STATUS')
     peserta_per_unit = (
-	df.query(" `TAHUN` == '2,022' ").groupby(by=['NAMA']).sum()[['TELAH MENGIKUTI/LULUS', 'TIDAK MEMENUHI SYARAT', 'MENGUNDURKAN DIRI',	'TIDAK MENGIKUTI', 'TELAH MENGIKUTI/LULUS'/'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
+	df.query(" `TAHUN` == '2,022' ").groupby(by=['NAMA']).sum()[['TELAH MENGIKUTI/LULUS', 'TIDAK MEMENUHI SYARAT', 'MENGUNDURKAN DIRI',	'TIDAK MENGIKUTI']].sort_values(by='NAMA')
     )
     st.dataframe(peserta_per_unit)
     st.line_chart(data=peserta_per_unit, x=['NAMA'], y=['TELAH MENGIKUTI/LULUS', 'TIDAK MEMENUHI SYARAT', 'MENGUNDURKAN DIRI',	'TIDAK MENGIKUTI', 'TELAH MENGIKUTI/LULUS'/'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True) 
