@@ -54,7 +54,7 @@ st.bar_chart(data=rencana_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA'], wi
 
 st.subheader('TOTAL REALISASI PESERTA PER NAMA PELATIHAN')
 realisasi_peserta_by_nama = (
-	df.groupby(by=['NAMA']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='TOTAL REALISASI PESERTA')
+	df.groupby(by=['NAMA', 'TAHUN']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='TOTAL REALISASI PESERTA')
 )
 st.dataframe(realisasi_peserta_by_nama)
-st.bar_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
+st.bar_chart(data=realisasi_peserta_by_nama, x=['NAMA', 'TAHUN'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
