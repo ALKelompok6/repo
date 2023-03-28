@@ -57,4 +57,4 @@ realisasi_peserta_by_nama = (
 	df.groupby(by=['NAMA']).sum()[['TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
 )
 st.dataframe(realisasi_peserta_by_nama, width=1760)
-st.bar_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
+st.bar_chart(data=realisasi_peserta_by_nama, x=['TOTAL REALISASI PESERTA'], y=['NAMA'], width=0, height=0, use_container_width=True)
