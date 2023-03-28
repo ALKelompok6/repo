@@ -43,7 +43,7 @@ elif choice == "2022":
     st.dataframe(df.head())
     
 st.title("Data Pelatihan 2021 dan 2022 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
-st.dataframe(df.query(" `JENIS` == 'Pelatihan Jarak Jauh' "))
+st.dataframe(df.query(" `ANGKATAN` == 'I' "))
 
 st.subheader('TOTAL RENCANA VS REALISASI PESERTA PER TAHUN')
 realisasi_peserta_by_tahun = (
