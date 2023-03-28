@@ -37,10 +37,10 @@ choice = st.sidebar.selectbox("Pilih Tahun", menu)
 
 if choice == "2021":
     st.title("Data Pelatihan 2021 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
-    st.dataframe(df.query(" `TAHUN` == '2.021' "))
+    st.dataframe(df.query(" `TAHUN` == '2021' "))
 elif choice == "2022":
     st.subheader("Data Pelatihan 2022 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
-    st.dataframe(df.query(" `TAHUN` == '2.022' "))
+    st.dataframe(df.query(" `TAHUN` == '2022' "))
 
 st.subheader('TOTAL RENCANA VS REALISASI PESERTA PER TAHUN')
 realisasi_peserta_by_tahun = (
