@@ -71,8 +71,9 @@ realisasi_peserta_by_nama_2021 = (
 )
 st.dataframe(realisasi_peserta_by_nama_2021)
 #st.bar_chart(data=realisasi_peserta_by_nama_2021, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
+
 filter_2 = (df['TAHUN']=='2022')
-#df.loc[~filter_2,:]
+df.loc[~filter_2,:]
 
 st.subheader('TOTAL REALISASI PESERTA PER NAMA PELATIHAN 2022')
 realisasi_peserta_by_nama_2022 = (
