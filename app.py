@@ -62,7 +62,7 @@ realisasi_peserta_by_nama = (
 st.dataframe(realisasi_peserta_by_nama)
 st.bar_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
 
-df[df['TAHUN']==2021]
+df[df['TAHUN']=='2021']
 
 #st.subheader('TOTAL REALISASI PESERTA PER NAMA PELATIHAN 2021')
 #realisasi_peserta_by_nama_2021 = (
