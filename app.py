@@ -41,32 +41,16 @@ rencana_peserta_by_tahun = (
 st.dataframe(rencana_peserta_by_tahun, width=1360)
 st.bar_chart(data=rencana_peserta_by_tahun, x=['TAHUN'], y=['RENCANA PESERTA'], width=0, height=0, use_container_width=True)
 
-st.subheader('TOTAL REALISASI PESERTA PER TAHUN')
+st.subheader('TOTAL RENCANA VS REALISASI PESERTA PER TAHUN')
 realisasi_peserta_by_tahun = (
-	df.groupby(by=['TAHUN']).sum()[['TOTAL REALISASI PESERTA']].sort_values(by='TAHUN')
+	df.groupby(by=['TAHUN']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='TAHUN')
 )
 st.dataframe(realisasi_peserta_by_tahun, width=1360)
-st.bar_chart(data=realisasi_peserta_by_tahun, x=['TAHUN'], y=['TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
+st.bar_chart(data=realisasi_peserta_by_tahun, x=['TAHUN'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
 
-st.subheader('TOTAL RENCANA PESERTA PER NAMA PELATIHAN')
-rencana_peserta_by_nama = (
-	df.groupby(by=['NAMA']).sum()[['RENCANA PESERTA']].sort_values(by='NAMA')
-)
-st.dataframe(rencana_peserta_by_nama, width=1760)
-st.bar_chart(data=rencana_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA'], width=0, height=0, use_container_width=True)
-
-st.subheader('TOTAL REALISASI PESERTA PER NAMA PELATIHAN')
+st.subheader('TOTAL RENCANA VS REALISASI PESERTA PER NAMA PELATIHAN')
 realisasi_peserta_by_nama = (
 	df.groupby(by=['NAMA']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
 )
 st.dataframe(realisasi_peserta_by_nama)
 st.bar_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
-
-df.query(" `TAHUN` =='2021' ")
-
-#st.subheader('TOTAL REALISASI PESERTA PER NAMA PELATIHAN 2021')
-#realisasi_peserta_by_nama_2021 = (
-#	df.loc[~filter_1,:].groupby(by=['NAMA']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
-#)
-#st.dataframe(realisasi_peserta_by_nama_2021)
-#st.bar_chart(data=realisasi_peserta_by_nama_2021, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
