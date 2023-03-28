@@ -47,3 +47,10 @@ rencana_peserta_by_nama = (
 )
 st.dataframe(rencana_peserta_by_nama, width=1760)
 st.bar_chart(data=rencana_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA'], width=0, height=0, use_container_width=True)
+
+st.subheader('TOTAL REALISASI PESERTA PER NAMA PELATIHAN')
+realisasi_peserta_by_nama = (
+	df.groupby(by=['NAMA']).sum()[['REALISASI PESERTA']].sort_values(by='NAMA')
+)
+st.dataframe(realisasi_peserta_by_nama, width=1760)
+st.bar_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['REALISASI PESERTA'], width=0, height=0, use_container_width=True)
