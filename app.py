@@ -31,13 +31,18 @@ def load_data(sheets_url):
 
 df = load_data(st.secrets["public_gsheets_url"])
 
-#st.sidebar.header('Tahun')
-#tahun = st.sidebar.multiselect(
-#    'Pilih Tahun:',
-#    options=df['TAHUN'].unique(),
-#    default=df['TAHUN'].unique()
-#)
+st.sidebar.header('Tahun')
+choice = st.sidebar.multiselect(
+    'Pilih Tahun:',
+    options=df['TAHUN'].unique(),
+    default=df['TAHUN'].unique()
+)
 
+df_selection = df.query(
+    'Tahun == @choice'
+)
+
+st.dataframe(df_selection)
 #rencana (nama + tanggal + hari + JP + rencana peserta + rencana JP)
 #realisasi peserta (per UE1 + total)
 #realisasi jamlator (per UE1 + total)
