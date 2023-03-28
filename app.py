@@ -25,10 +25,9 @@ def load_data(sheets_url):
 df = load_data(st.secrets["public_gsheets_url"])
 
 st.title("Data Pelatihan 2021 dan 2022 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
-st.dataframe(df)
-
+st.dataframe(df, width=1360)
 st.subheader('REALISASI PESERTA')
-st.line_chart(data= df, x='TAHUN', y='TOTAL REALISASI PESERTA', width=0, height=0, use_container_width=True)
+st.line_chart(data= df, x='TAHUN', y='TOTAL REALISASI PESERTA', width=1360), height=0, use_container_width=True)
 
 #sns.barplot(x=data['Survived'].value_counts().index, y=data['Survived'].value_counts())
 
