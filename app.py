@@ -34,13 +34,6 @@ df = load_data(st.secrets["public_gsheets_url"])
 st.title("Data Pelatihan 2021 dan 2022 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
 st.dataframe(df, width=1360)
 
-st.subheader('TOTAL RENCANA PESERTA PER TAHUN')
-rencana_peserta_by_tahun = (
-	df.groupby(by=['TAHUN']).sum()[['RENCANA PESERTA']].sort_values(by='TAHUN')
-)
-st.dataframe(rencana_peserta_by_tahun, width=1360)
-st.bar_chart(data=rencana_peserta_by_tahun, x=['TAHUN'], y=['RENCANA PESERTA'], width=0, height=0, use_container_width=True)
-
 st.subheader('TOTAL RENCANA VS REALISASI PESERTA PER TAHUN')
 realisasi_peserta_by_tahun = (
 	df.groupby(by=['TAHUN']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='TAHUN')
