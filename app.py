@@ -47,18 +47,18 @@ if choice == "2021":
     st.line_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
 
     st.subheader('INDEKS KESESUAIAN MATERI')
-    realisasi_peserta_by_nama = (
-	df.query(" `TAHUN` == 2.021 ").groupby(by=['NAMA']).sum()['KESESUAIAN MATERI'].sort_values(by='NAMA')
+    indeks_kesesuaian_materi = (
+	df.query(" `TAHUN` == 2.021 ").groupby(by=['NAMA']).sum()[['KESESUAIAN MATERI']].sort_values(by='NAMA')
     )
-    st.dataframe(realisasi_peserta_by_nama)
-    st.line_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['KESESUAIAN MATERI'], width=0, height=0, use_container_width=True)
+    st.dataframe(indeks_kesesuaian_materi)
+    st.line_chart(data=indeks_kesesuaian_materi, x=['NAMA'], y=['KESESUAIAN MATERI'], width=0, height=0, use_container_width=True)
 
     st.subheader('PESERTA PER UNIT')
-    realisasi_peserta_by_nama = (
+    peserta_per_unit = (
 	df.query(" `TAHUN` == 2.021 ").groupby(by=['NAMA']).sum()[['TELAH MENGIKUTI/LULUS', 'TIDAK MEMENUHI SYARAT', 'MENGUNDURKAN DIRI',	'TIDAK MENGIKUTI']].sort_values(by='NAMA')
     )
-    st.dataframe(realisasi_peserta_by_nama)
-    st.line_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['TELAH MENGIKUTI/LULUS', 'TIDAK MEMENUHI SYARAT', 'MENGUNDURKAN DIRI',	'TIDAK MENGIKUTI'], width=0, height=0, use_container_width=True)    
+    st.dataframe(peserta_per_unit)
+    st.line_chart(data=peserta_per_unit, x=['NAMA'], y=['TELAH MENGIKUTI/LULUS', 'TIDAK MEMENUHI SYARAT', 'MENGUNDURKAN DIRI',	'TIDAK MENGIKUTI'], width=0, height=0, use_container_width=True)    
 elif choice == "2022":
     st.subheader("Data Pelatihan 2022 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
     st.dataframe(df.query(" `TAHUN` == 2.022 "))
@@ -71,18 +71,18 @@ elif choice == "2022":
     st.line_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
 
     st.subheader('INDEKS KESESUAIAN MATERI')
-    realisasi_peserta_by_nama = (
-	df.query(" `TAHUN` == 2.022 ").groupby(by=['NAMA']).sum()['KESESUAIAN MATERI'].sort_values(by='NAMA')
+    indeks_kesesuaian_materi = (
+	df.query(" `TAHUN` == 2.022 ").groupby(by=['NAMA']).sum()[['KESESUAIAN MATERI']].sort_values(by='NAMA')
     )
-    st.dataframe(realisasi_peserta_by_nama)
-    st.line_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['KESESUAIAN MATERI'], width=0, height=0, use_container_width=True)
+    st.dataframe(indeks_kesesuaian_materi)
+    st.line_chart(data=indeks_kesesuaian_materi, x=['NAMA'], y=['KESESUAIAN MATERI'], width=0, height=0, use_container_width=True)
 
     st.subheader('PESERTA PER UNIT')
-    realisasi_peserta_by_nama = (
+    peserta_per_unit = (
 	df.query(" `TAHUN` == 2.022 ").groupby(by=['NAMA']).sum()[['TELAH MENGIKUTI/LULUS', 'TIDAK MEMENUHI SYARAT', 'MENGUNDURKAN DIRI',	'TIDAK MENGIKUTI']].sort_values(by='NAMA')
     )
-    st.dataframe(realisasi_peserta_by_nama)
-    st.line_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['TELAH MENGIKUTI/LULUS', 'TIDAK MEMENUHI SYARAT', 'MENGUNDURKAN DIRI',	'TIDAK MENGIKUTI'], width=0, height=0, use_container_width=True) 
+    st.dataframe(peserta_per_unit)
+    st.line_chart(data=peserta_per_unit, x=['NAMA'], y=['TELAH MENGIKUTI/LULUS', 'TIDAK MEMENUHI SYARAT', 'MENGUNDURKAN DIRI',	'TIDAK MENGIKUTI'], width=0, height=0, use_container_width=True) 
 
 st.subheader('TOTAL RENCANA VS REALISASI PESERTA PER TAHUN')
 realisasi_peserta_by_tahun = (
