@@ -48,7 +48,7 @@ if choice == "2021":
 
     st.subheader('INDEKS KESESUAIAN MATERI')
     kesesuaian_materi = (
-	df.query(" `TAHUN` == 2.021 ").groupby(by=['NAMA']).sum()[['HARI', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
+	df.query(" `TAHUN` == 2.021 ").groupby(by=['NAMA']).sum()[['KESESUAIAN MATERI', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
     )
     st.dataframe(kesesuaian_materi)
     #st.line_chart(data=kesesuaian_materi, x=['NAMA'], y=['KESESUAIAN MATERI'], width=0, height=0, use_container_width=True)
@@ -72,7 +72,7 @@ elif choice == "2022":
 
     st.subheader('INDEKS KESESUAIAN MATERI')
     kesesuaian_materi = (
-	df.query(" `TAHUN` == 2.022 ").groupby(by=['NAMA']).sum()[['HARI', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
+	df.query(" `TAHUN` == 2.022 ").groupby(by=['NAMA']).sum()[['KESESUAIAN MATERI', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
     )
     st.dataframe(kesesuaian_materi)
     #st.line_chart(data=kesesuaian_materi, x=['NAMA'], y=['KESESUAIAN MATERI'], width=0, height=0, use_container_width=True)
