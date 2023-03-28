@@ -31,7 +31,8 @@ def load_data(sheets_url):
 
 df = load_data(st.secrets["public_gsheets_url"])
 
-tahun = st.sidear.mutliselect(
+st.sidebar.header('Tahun')
+tahun = st.sidebar.multiselect(
     'Pilih Tahun:',
     options=df['TAHUN'].unique(),
     default=df['TAHUN'].unique()
