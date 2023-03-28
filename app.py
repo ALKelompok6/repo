@@ -29,10 +29,10 @@ st.dataframe(df, width=1360)
 
 st.subheader('TOTAL RENCANA PESERTA PER TAHUN')
 rencana_peserta_by_tahun = (
-	df.groupby(by=['TAHUN']).sum()[['TOTAL RENCANA PESERTA']].sort_values(by='TAHUN')
+	df.groupby(by=['TAHUN']).sum()[['RENCANA PESERTA']].sort_values(by='TAHUN')
 )
 st.dataframe(rencana_peserta_by_tahun, width=1360)
-st.bar_chart(data=rencana_peserta_by_tahun, x=['TAHUN'], y=['TOTAL RENCANA PESERTA'], width=0, height=0, use_container_width=True)
+st.bar_chart(data=rencana_peserta_by_tahun, x=['TAHUN'], y=['RENCANA PESERTA'], width=0, height=0, use_container_width=True)
 #sns.barplot(x=data['Survived'].value_counts().index, y=data['Survived'].value_counts())
 
 
