@@ -31,18 +31,18 @@ def load_data(sheets_url):
 
 df = load_data(st.secrets["public_gsheets_url"])
 
-st.sidebar.header('Tahun')
-tahun = st.sidebar.multiselect(
-    'Pilih Tahun:',
-    options=df['TAHUN'].unique(),
-    default=df['TAHUN'].unique()
-)
-
 #st.sidebar.header('Tahun')
-#menu = ["2021","2022"]
-#choice = st.sidebar.selectbox("Pilih Tahun", menu)
+#tahun = st.sidebar.multiselect(
+#    'Pilih Tahun:',
+#    options=df['TAHUN'].unique(),
+#    default=df['TAHUN'].unique()
+#)
 
-if tahun == "2021":
+st.sidebar.header('Tahun')
+menu = ["2021","2022"]
+choice = st.sidebar.selectbox("Pilih Tahun", menu)
+
+if choice == "2021":
     st.title("Data Pelatihan 2021 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
     st.dataframe(df.query(" `TAHUN` == '2,021' "))
 
@@ -74,7 +74,7 @@ if tahun == "2021":
     st.dataframe(peserta_per_unit)
     st.line_chart(data=peserta_per_unit, x=['NAMA'], y=['PESERTA SETJEN',	'PESERTA ITJEN',	'PESERTA DJA',	'PESERTA DJP',	'PESERTA DJBC',	'PESERTA DJPb',	'PESERTA DJPK',	'PESERTA DJKN',	'PESERTA DJPPR',	'PESERTA BKF',	'PESERTA BPPK',	'PESERTA LNSW',	'PESERTA KSSK'], width=0, height=0, use_container_width=True)   
 
-elif tahun == "2022":
+elif choice == "2022":
     st.subheader("Data Pelatihan 2022 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
     st.dataframe(df.query(" `TAHUN` == '2,022' "))
 
