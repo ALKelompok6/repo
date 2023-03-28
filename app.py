@@ -29,7 +29,7 @@ st.dataframe(df, width=1360)
 
 st.subheader('TOTAL REALISASI PESERTA PER TAHUN')
 realisasi_peserta_by_tahun = (
-	df.groupby(by=['TAHUN']).sum()[['TOTAL REALISASI PESERTA'], ['TOTAL RENCANA PESERTA']].sort_values(by='TAHUN')
+	df.groupby(by=['TAHUN']).sum()[['TOTAL REALISASI PESERTA', 'TOTAL RENCANA PESERTA']].sort_values(by='TAHUN')
 )
 st.dataframe(realisasi_peserta_by_tahun, width=1360)
 st.bar_chart(data=realisasi_peserta_by_tahun, x=['TAHUN'], y=['TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
