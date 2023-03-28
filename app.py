@@ -30,9 +30,8 @@ realisasi_peserta_by_tahun = (
 	df.groupby(by=['TAHUN']).sum()[['TOTAL REALISASI PESERTA']].sort_values(by='TOTAL REALISASI PESERTA')
 )
 st.dataframe(realisasi_peserta_by_tahun, width=1360)
-st.subheader('REALISASI PESERTA')
-st.line_chart(realisasi_peserta_by_tahun, x='TAHUN', y=realisasi_peserta_by_tahun, width=1360, height=0, use_container_width=True)
-
+st.line_chart(data=realisasi_peserta_by_tahun, x='TAHUN', y=realisasi_peserta_by_tahun, width=0, height=0, use_container_width=True)
+title='<b>Total Realisasi Peserta per Tahun</b>'
 #sns.barplot(x=data['Survived'].value_counts().index, y=data['Survived'].value_counts())
 
 st.subheader('RENCANA PESERTA')
