@@ -28,7 +28,7 @@ st.title("Data Pelatihan 2021 dan 2022 Pusat Pendidikan dan Pelatihan Kepemimpin
 st.dataframe(df.head())
 
 st.subheader('REALISASI PESERTA')
-st.line_chart(data=df,  x='TAHUN', y='TOTAL REALISASI PESERTA', width=0, height=0, use_container_width=True)
+st.line_chart(data=df,  x='TAHUN', y=data['TOTAL REALISASI PESERTA'].value_counts(), width=0, height=0, use_container_width=True)
 
 st.subheader('RENCANA PESERTA')
 hist_plot = df['RENCANA PESERTA'].plot.hist()
