@@ -32,8 +32,8 @@ def load_data(sheets_url):
 df = load_data(st.secrets["public_gsheets_url"])
 
 st.sidebar.header('Tahun')
-menu = ["2021","2022"]
-choice = st.sidebar.button("Pilih Tahun", menu)
+choice = st.sidebar(2021)
+choice = st.sidebar(2022)
 
 
 st.title("Data Pelatihan 2021 dan 2022 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
