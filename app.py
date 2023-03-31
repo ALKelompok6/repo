@@ -82,35 +82,3 @@ df_selection = df.query(
 )
 
 st.dataframe(df_selection[['NAMA PELATIHAN', 'TAHUN', 'KESESUAIAN MATERI',	'HARI',	'JP',	'RENCANA PESERTA',	'RENCANA JAMLATOR', 'TELAH MENGIKUTI/LULUS',	'TIDAK MEMENUHI SYARAT',	'MENGUNDURKAN DIRI',	'TIDAK MENGIKUTI',	'TOTAL REALISASI PESERTA',	'PERSENTASE KEIKUTSERTAAN',	'TOTAL JAMLATOR']])
-
-# ---- MAINPAGE ----
-st.title("Data Pelatihan 2021 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
-total_rencana = int(df_selection['RENCANA PESERTA'].sum())
-total_peserta = int(df_selection['TOTAL REALISASI PESERTA'].sum())
-total_jamlator = int(df_selection['TOTAL JAMLATOR'].sum())
-rerata_seseusaian_materi = round(df_selection['KESESUAIAN MATERI'].mean(), 2)
-indeks_bintang =':star:' * int(round(rerata_seseusaian_materi, 0))
-
-col1, col2, col3, col4 = st.columns(4)
-with col1:
-    st.subheader('RENCANA PESERTA')
-    st.subheader(f"{total_rencana:,}")
-with col2:
-    st.subheader('TOTAL REALISASI PESERTA')
-    st.subheader(f"{total_jamlator:,}")
-with col3:
-    st.subheader('TOTAL JAMLATOR')
-    st.subheader(f"{total_peserta:,}")
-with col4:
-    st.subheader('KESESUAIAN MATERI')
-    st.subheader(f"{rerata_seseusaian_materi:,} {indeks_bintang}")
-
-st.markdown("""---""")
-
-#RENCANA VS REALISASI PESERTA PER PELATIHAN
-st.subheader('RENCANA VS REALISASI PESERTA PER PELATIHAN')
-realisasi_peserta_by_nama = (
-df_selection.groupby(by=['NAMA']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
-)
-st.dataframe(realisasi_peserta_by_nama)
-st.line_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
