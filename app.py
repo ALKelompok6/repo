@@ -77,9 +77,8 @@ angkatan = st.sidebar.multiselect(
     default=df["ANGKATAN"].unique(),
 )
 
-
 df_selection = df.query(
-    "TAHUN == @tahun & NAMA BULAN ==@bulan & NAMA == @nama & ANGKATAN ==@angkatan"
+    "TAHUN == @tahun & BULAN ==@bulan & NAMA == @nama & ANGKATAN ==@angkatan"
 )
 
 st.dataframe(df_selection)
