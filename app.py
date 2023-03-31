@@ -61,8 +61,8 @@ tahun = st.sidebar.multiselect(
 
 bulan = st.sidebar.multiselect(
     "Pilih Bulan:",
-    options=df["BULAN"].unique(),
-    default=df["BULAN"].unique(),
+    options=df["NAMA BULAN"].unique(),
+    default=df["NAMA BULAN"].unique(),
 )
 
 nama = st.sidebar.multiselect(
@@ -78,7 +78,7 @@ angkatan = st.sidebar.multiselect(
 )
 
 df_selection = df.query(
-    "TAHUN == @tahun & BULAN ==@bulan & NAMA == @nama & ANGKATAN ==@angkatan"
+    "TAHUN == @tahun & `NAMA BULAN` ==@bulan & NAMA == @nama & ANGKATAN ==@angkatan"
 )
 
 st.dataframe(df_selection)
