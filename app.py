@@ -31,19 +31,6 @@ def load_data(sheets_url):
 
 df = load_data(st.secrets["public_gsheets_url"])
 
-#st.sidebar.header('Tahun')
-#choice = st.sidebar.multiselect(
-#    'Pilih Tahun:',
-#   options=df['TAHUN'].unique(),
-#    default=df['TAHUN'].unique()
-#)
-
-#df_selection = df.query(
-#    "Choice == @choice"
-#)
-
-#st.dataframe(df_selection)
-
 #rencana (nama + tanggal + hari + JP + rencana peserta + rencana JP)
 #realisasi peserta (per UE1 + total)
 #realisasi jamlator (per UE1 + total)
@@ -143,7 +130,14 @@ df_selection.groupby(by=['NAMA']).sum()[['PESERTA SETJEN',	'PESERTA ITJEN',	'PES
 st.dataframe(peserta_per_unit)
 st.line_chart(data=peserta_per_unit, x=['NAMA'], y=['PESERTA SETJEN',	'PESERTA ITJEN',	'PESERTA DJA',	'PESERTA DJP',	'PESERTA DJBC',	'PESERTA DJPb',	'PESERTA DJPK',	'PESERTA DJKN',	'PESERTA DJPPR',	'PESERTA BKF',	'PESERTA BPPK',	'PESERTA LNSW',	'PESERTA KSSK'], width=0, height=0, use_container_width=True)
 
-st.subheader('TOTAL RENCANA VS REALISASI PESERTA PER TAHUN')
+st.subheader('PESERTA PER JAMLATOR')
+peserta_per_unit = (
+df_selection.groupby(by=['NAMA']).sum()[['JAMLATOR SETJEN',	'JAMLATOR ITJEN',	'JAMLATOR DJA',	'JAMLATOR DJP',	'JAMLATOR DJBC',	'JAMLATOR DJPb',	'JAMLATOR DJPK',	'JAMLATOR DJKN',	'JAMLATOR DJPPR',	'JAMLATOR BKF',	'JAMLATOR BPPK',	'JAMLATOR LNSW',	'JAMLATOR KSSK']].sort_values(by='NAMA')
+)
+st.dataframe(peserta_per_unit)
+st.line_chart(data=peserta_per_unit, x=['NAMA'], y=['JAMLATOR SETJEN',	'JAMLATOR ITJEN',	'JAMLATOR DJA',	'JAMLATOR DJP',	'JAMLATOR DJBC',	'JAMLATOR DJPb',	'JAMLATOR DJPK',	'JAMLATOR DJKN',	'JAMLATOR DJPPR',	'JAMLATOR BKF',	'JAMLATOR BPPK',	'JAMLATOR LNSW',	'JAMLATOR KSSK'], width=0, height=0, use_container_width=True)
+
+st.subheader('RENCANA VS REALISASI PESERTA PER TAHUN')
 realisasi_peserta_by_tahun = (
 	df.groupby(by=['TAHUN']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='TAHUN')
 )
