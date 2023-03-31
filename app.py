@@ -81,8 +81,6 @@ df_selection = df.query(
     "TAHUN == @tahun & `NAMA BULAN` ==@bulan & NAMA == @nama & ANGKATAN ==@angkatan"
 )
 
-st.dataframe(df_selection[['NAMA PELATIHAN', 'TAHUN', 'KESESUAIAN MATERI',	'HARI',	'JP',	'RENCANA PESERTA',	'RENCANA JAMLATOR', 'TELAH MENGIKUTI/LULUS',	'TIDAK MEMENUHI SYARAT',	'MENGUNDURKAN DIRI',	'TIDAK MENGIKUTI',	'TOTAL REALISASI PESERTA',	'PERSENTASE KEIKUTSERTAAN',	'TOTAL JAMLATOR']])
-
 # ---- MAINPAGE ----
 st.title("Data Pelatihan 2021 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
 total_rencana = int(df_selection['RENCANA PESERTA'].sum())
@@ -107,6 +105,8 @@ with col4:
 
 st.markdown("""---""")
 
+st.dataframe(df_selection[['NAMA PELATIHAN', 'TAHUN', 'KESESUAIAN MATERI',	'HARI',	'JP',	'RENCANA PESERTA',	'RENCANA JAMLATOR', 'TELAH MENGIKUTI/LULUS',	'TIDAK MEMENUHI SYARAT',	'MENGUNDURKAN DIRI',	'TIDAK MENGIKUTI',	'TOTAL REALISASI PESERTA',	'PERSENTASE KEIKUTSERTAAN',	'TOTAL JAMLATOR']])
+
 #RENCANA VS REALISASI PESERTA PER PELATIHAN
 st.subheader('RENCANA VS REALISASI PESERTA PER PELATIHAN')
 realisasi_peserta_by_nama = (
@@ -114,3 +114,10 @@ df_selection.groupby(by=['NAMA']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PES
 )
 st.dataframe(realisasi_peserta_by_nama)
 st.line_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
+
+st.subheader('RENCANA VS REALISASI JAMLATOR PER PELATIHAN')
+realisasi_jamlator_by_nama = (
+df_selection.groupby(by=['NAMA']).sum()[['RENCANA JAMLATOR', 'TOTAL JAMLATOR']].sort_values(by='NAMA')
+)
+st.dataframe(realisasi_jamlator_by_nama)
+st.line_chart(data=realisasi_jamlator_by_nama, x=['NAMA'], y=['RENCANA JAMLATOR', 'TOTAL JAMLATOR'], width=0, height=0, use_container_width=True)
