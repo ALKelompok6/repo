@@ -82,3 +82,10 @@ df_selection = df.query(
 )
 
 st.dataframe(df_selection)
+
+st.title("Data Pelatihan 2021 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
+total_rencana = int(df_selection.query(" `TAHUN` == '2,021' ")['RENCANA PESERTA'].sum())
+total_peserta = int(df_selection.query(" `TAHUN` == '2,021' ")['TOTAL REALISASI PESERTA'].sum())
+total_jamlator = int(df_selection.query(" `TAHUN` == '2,021' ")['TOTAL JAMLATOR'].sum())
+rerata_seseusaian_materi = round(df_selection.query(" `TAHUN` == '2,021' ")['KESESUAIAN MATERI'].mean(), 2)
+indeks_bintang =':star:' * int(round(rerata_seseusaian_materi, 0))
