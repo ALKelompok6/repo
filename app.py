@@ -111,7 +111,7 @@ st.line_chart(data=realisasi_jamlator_by_nama, x=['NAMA'], y=['RENCANA JAMLATOR'
 
 st.subheader('INDEKS KESESUAIAN MATERI')
 kesesuaian_materi = (
-df_selection.groupby(by=['BULAN']).mean()[['KESESUAIAN MATERI']].sort_values(by='BULAN')
+round(df_selection.groupby(by=['BULAN']).mean()[['KESESUAIAN MATERI']].sort_values(by='BULAN'), 2)
 )
 st.dataframe(kesesuaian_materi)
 st.line_chart(data=kesesuaian_materi, x=['BULAN'], y=['KESESUAIAN MATERI'], width=0, height=0, use_container_width=True)
