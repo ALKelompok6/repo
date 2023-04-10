@@ -40,10 +40,10 @@ df = load_data(st.secrets["public_gsheets_url"])
 
 # ---- SIDEBAR ----
 st.sidebar.header("Tahun")
-tahun = st.sidebar.checkbox(
+tahun = st.sidebar.selectbox(
     "Pilih Tahun:",
-    options=df["TAHUN"].all_columns(),
-    default=df["TAHUN"].all_columns()
+    options=df["TAHUN"].unique(),
+    default=df["TAHUN"].unique()
 )
 
 #if st.checkbox("Histogram"):
