@@ -51,11 +51,18 @@ df = load_data(st.secrets["public_gsheets_url"])
 #    value=[min_date, max_date]
 #)
 
-tahun = st.sidebar.multiselect(
-    "Pilih Tahun:",
-    options=df["TAHUN"].unique(),
-    default=df["TAHUN"].unique(),
+tanggal =st.date_input(
+    "Pilih Tanggal:", 
+    value=None, 
+    min_value=None, 
+    max_value=None,
 )
+
+#tahun = st.sidebar.multiselect(
+#    "Pilih Tahun:",
+#    options=df["TAHUN"].unique(),
+#    default=df["TAHUN"].unique(),
+#)
 
 bulan = st.sidebar.multiselect(
     "Pilih Bulan:",
@@ -76,7 +83,7 @@ angkatan = st.sidebar.multiselect(
 )
 
 df_selection = df.query(
-    "TAHUN == @tahun & `NAMA BULAN` == @bulan & NAMA == @nama & ANGKATAN ==@angkatan"
+    "`TANGGAL SELESAI` == @tanggal & `NAMA BULAN` == @bulan & NAMA == @nama & ANGKATAN ==@angkatan"
 )
 
 # ---- MAINPAGE ----
