@@ -39,12 +39,20 @@ df = load_data(st.secrets["public_gsheets_url"])
 #realisasi jamlator (per UE1 + total) RENCANA VS REALISASI
 
 # ---- SIDEBAR ----
-st.sidebar.header("Tahun")
+#st.sidebar.header("Tahun")
+min_date = data ['TANGGAL MULAI'].min()
+max_date = data ['TANGGAL SELESAI'].max()
+start_date, end_date = st.sidebar.date_input(
+    label='Rentang Waktu',
+    min_value=min_date, 
+    max_value=max_date, 
+    value=[min_date, max_date]
+)
+
 tahun = st.sidebar.multiselect(
     "Pilih Tahun:",
     options=df["TAHUN"].unique(),
     default=df["TAHUN"].unique(),
-    label_visibility="collapsed"
 )
 
 bulan = st.sidebar.multiselect(
@@ -66,7 +74,7 @@ angkatan = st.sidebar.multiselect(
 )
 
 df_selection = df.query(
-    "TAHUN == @tahun & `NAMA BULAN` ==@bulan & NAMA == @nama & ANGKATAN ==@angkatan"
+    "TANGGAL MULAI == @start_date & TANGGAL SELESAI == @end_date & TAHUN == @tahun & `NAMA BULAN` == @bulan & NAMA == @nama & ANGKATAN ==@angkatan"
 )
 
 # ---- MAINPAGE ----
