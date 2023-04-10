@@ -40,11 +40,17 @@ df = load_data(st.secrets["public_gsheets_url"])
 
 # ---- SIDEBAR ----
 st.sidebar.header("Tahun")
-tahun = st.sidebar.multiselect(
+tahun = st.sidebar.checkbox(
     "Pilih Tahun:",
-    options=df["TAHUN"].unique(),
-    default=df["TAHUN"].unique()
+    options=df["TAHUN"].all_columns(),
+    default=df["TAHUN"].all_columns()
 )
+
+#if st.checkbox("Histogram"):
+#    columns_to_plot = st.selectbox("Select Column for Histogram", all_columns)
+#    hist_plot = df[columns_to_plot].plot.hist()
+#    st.write(hist_plot)
+#    st.pyplot()
 
 bulan = st.sidebar.multiselect(
     "Pilih Bulan:",
