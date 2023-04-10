@@ -46,10 +46,10 @@ tahun = st.sidebar.multiselect(
     default=df["TAHUN"].unique()
 )
 
-bulan = st.sidebar.multiselect(
+bulan = st.sidebar.selectbox(
     "Pilih Bulan:",
     options=df["NAMA BULAN"].unique(),
-    default=df["NAMA BULAN"].unique()
+    default='Januari'
 )
 
 nama = st.sidebar.multiselect(
