@@ -69,7 +69,7 @@ df_selection = df.query(
 )
 
 # ---- MAINPAGE ----
-tahun_picked = int(df_selection['TAHUN'].sum())
+tahun_picked = (df_selection['TAHUN'].sum())
 st.title("Data Pelatihan Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial" f"{tahun_picked:,}")
 total_rencana = int(df_selection['RENCANA PESERTA'].sum())
 total_peserta = int(df_selection['TOTAL REALISASI PESERTA'].sum())
