@@ -2,6 +2,8 @@
 import streamlit as st
 import plotly.express as px
 # sklearn version = 0.24.2
+px.defaults.template='plotly_dark'
+px.defaults.color_continuous_scale='reds'
 
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -74,7 +76,7 @@ angkatan = st.sidebar.multiselect(
 )
 
 df_selection = df.query(
-    "`TANGGAL SELESAI` == @start_date & `TANGGAL SELESAI` == @end_date & TAHUN == @tahun & `NAMA BULAN` == @bulan & NAMA == @nama & ANGKATAN ==@angkatan"
+    "`TANGGAL SELESAI` == @start_date, @end_date & TAHUN == @tahun & `NAMA BULAN` == @bulan & NAMA == @nama & ANGKATAN ==@angkatan"
 )
 
 # ---- MAINPAGE ----
