@@ -43,7 +43,8 @@ st.sidebar.header("Tahun")
 tahun = st.sidebar.multiselect(
     "Pilih Tahun:",
     options=df["TAHUN"].unique(),
-    default=df["TAHUN"].unique()
+    default=df["TAHUN"].unique(),
+    label_visibility="collapsed"
 )
 
 bulan = st.sidebar.multiselect(
