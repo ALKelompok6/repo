@@ -49,7 +49,7 @@ tahun = st.sidebar.multiselect(
 bulan = st.sidebar.multiselect(
     "Pilih Bulan:",
     options=df["NAMA BULAN"].unique(),
-#    default=df["NAMA BULAN"].unique()
+    default=df["NAMA BULAN"].unique()
 )
 
 nama = st.sidebar.multiselect(
@@ -70,7 +70,7 @@ df_selection = df.query(
 
 # ---- MAINPAGE ----
 tahun_picked = (df_selection['TAHUN'].sum())
-st.title("Data Pelatihan Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial" f"{tahun_picked:,}")
+st.title("Data Pelatihan Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
 total_rencana = int(df_selection['RENCANA PESERTA'].sum())
 total_peserta = int(df_selection['TOTAL REALISASI PESERTA'].sum())
 total_jamlator = int(df_selection['TOTAL JAMLATOR'].sum())
