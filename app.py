@@ -74,7 +74,7 @@ angkatan = st.sidebar.multiselect(
 )
 
 df_selection = df.query(
-    "TANGGAL MULAI == @start_date & TANGGAL SELESAI == @end_date & TAHUN == @tahun & `NAMA BULAN` == @bulan & NAMA == @nama & ANGKATAN ==@angkatan"
+    "`TANGGAL MULAI` == @start_date & `TANGGAL SELESAI` == @end_date & TAHUN == @tahun & `NAMA BULAN` == @bulan & NAMA == @nama & ANGKATAN ==@angkatan"
 )
 
 # ---- MAINPAGE ----
