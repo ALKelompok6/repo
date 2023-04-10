@@ -58,11 +58,11 @@ tanggal =st.sidebar.date_input(
     max_value=None,
 )
 
-#tahun = st.sidebar.multiselect(
-#    "Pilih Tahun:",
-#    options=df["TAHUN"].unique(),
-#    default=df["TAHUN"].unique(),
-#)
+tahun = st.sidebar.multiselect(
+    "Pilih Tahun:",
+    options=df["TAHUN"].unique(),
+    default=df["TAHUN"].unique(),
+)
 
 bulan = st.sidebar.multiselect(
     "Pilih Bulan:",
@@ -83,7 +83,7 @@ angkatan = st.sidebar.multiselect(
 )
 
 df_selection = df.query(
-    "`TANGGAL SELESAI` == @tanggal & `NAMA BULAN` == @bulan & NAMA == @nama & ANGKATAN ==@angkatan"
+    "`TANGGAL SELESAI` == @tanggal & TAHUN ==@tahun & `NAMA BULAN` == @bulan & NAMA == @nama & ANGKATAN ==@angkatan"
 )
 
 # ---- MAINPAGE ----
