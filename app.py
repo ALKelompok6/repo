@@ -40,8 +40,8 @@ df = load_data(st.secrets["public_gsheets_url"])
 
 # ---- SIDEBAR ----
 #st.sidebar.header("Tahun")
-min_date = data ['TANGGAL MULAI'].min()
-max_date = data ['TANGGAL SELESAI'].max()
+min_date=df['TANGGAL MULAI'].min()
+max_date=df['TANGGAL SELESAI'].max()
 start_date, end_date = st.sidebar.date_input(
     label='Rentang Waktu',
     min_value=min_date, 
