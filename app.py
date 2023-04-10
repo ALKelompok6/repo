@@ -53,13 +53,13 @@ bulan = st.sidebar.multiselect(
 )
 
 nama = st.sidebar.multiselect(
-    "Select the Customer Type:",
+    "Pilih Nama Pelatihan:",
     options=df["NAMA"].unique(),
     default=df["NAMA"].unique()
 )
 
 angkatan = st.sidebar.multiselect(
-    "Select the Customer Type:",
+    "Pilih Angkatan:",
     options=df["ANGKATAN"].unique(),
     default=df["ANGKATAN"].unique()
 )
@@ -101,7 +101,7 @@ realisasi_peserta_by_nama = (
 df_selection.groupby(by=['NAMA']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='NAMA')
 )
 st.dataframe(realisasi_peserta_by_nama)
-st.line_chart(data=realisasi_peserta_by_nama, x=['NAMA'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
+st.line_chart(data=realisasi_peserta_by_nama, x=['BULAN'], y=['NAMA'], color=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
 
 st.subheader('RENCANA VS REALISASI JAMLATOR PER PELATIHAN')
 realisasi_jamlator_by_nama = (
