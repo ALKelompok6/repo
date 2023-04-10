@@ -43,14 +43,8 @@ st.sidebar.header("Tahun")
 tahun = st.sidebar.multiselect(
     "Pilih Tahun:",
     options=df["TAHUN"].unique(),
-#    default=df["TAHUN"].unique()
+    default=df["TAHUN"].unique()
 )
-
-#if st.checkbox("Histogram"):
-#    columns_to_plot = st.selectbox("Select Column for Histogram", all_columns)
-#    hist_plot = df[columns_to_plot].plot.hist()
-#    st.write(hist_plot)
-#    st.pyplot()
 
 bulan = st.sidebar.multiselect(
     "Pilih Bulan:",
@@ -75,7 +69,7 @@ df_selection = df.query(
 )
 
 # ---- MAINPAGE ----
-st.title("Data Pelatihan 2021 Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
+st.title("Data Pelatihan" f"{tahun:,} Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajerial")
 total_rencana = int(df_selection['RENCANA PESERTA'].sum())
 total_peserta = int(df_selection['TOTAL REALISASI PESERTA'].sum())
 total_jamlator = int(df_selection['TOTAL JAMLATOR'].sum())
