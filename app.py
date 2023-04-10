@@ -40,7 +40,7 @@ df = load_data(st.secrets["public_gsheets_url"])
 
 # ---- SIDEBAR ----
 st.sidebar.header("Tahun")
-tahun = st.sidebar.multiselect(
+tahun = st.sidebar.checkbox(
     "Pilih Tahun:",
     options=df["TAHUN"].unique(),
     default=df["TAHUN"].unique()
