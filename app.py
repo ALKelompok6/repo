@@ -40,7 +40,7 @@ df = load_data(st.secrets["public_gsheets_url"])
 
 # ---- SIDEBAR ----
 #st.sidebar.header("Tahun")
-min_date=df['TANGGAL MULAI'].min()
+min_date=df['TANGGAL SELESAI'].min()
 max_date=df['TANGGAL SELESAI'].max()
 start_date, end_date = st.sidebar.date_input(
     label='Rentang Waktu',
@@ -74,7 +74,7 @@ angkatan = st.sidebar.multiselect(
 )
 
 df_selection = df.query(
-    "`TANGGAL MULAI` == @start_date & `TANGGAL SELESAI` == @end_date & TAHUN == @tahun & `NAMA BULAN` == @bulan & NAMA == @nama & ANGKATAN ==@angkatan"
+    "`TANGGAL SELESAI` == @start_date & `TANGGAL SELESAI` == @end_date & TAHUN == @tahun & `NAMA BULAN` == @bulan & NAMA == @nama & ANGKATAN ==@angkatan"
 )
 
 # ---- MAINPAGE ----
