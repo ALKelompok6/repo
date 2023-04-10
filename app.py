@@ -51,7 +51,7 @@ df = load_data(st.secrets["public_gsheets_url"])
 #    value=[min_date, max_date]
 #)
 
-tanggal =st.date_input(
+tanggal =st.sidebar.date_input(
     "Pilih Tanggal:", 
     value=None, 
     min_value=None, 
