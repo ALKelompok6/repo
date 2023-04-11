@@ -115,7 +115,7 @@ kesesuaian_materi = (
 round(df_selection.groupby(by=['BULAN']).mean()[['KESESUAIAN MATERI']].sort_values(by='BULAN'), 2)
 )
 st.dataframe(kesesuaian_materi)
-st.line_chart(data=kesesuaian_materi, x=['BULAN'], y=['KESESUAIAN MATERI'], width=0, height=0, use_container_width=True)
+st.bar_chart(data=kesesuaian_materi, x=['BULAN'], y=['KESESUAIAN MATERI'], width=0, height=0, use_container_width=True)
 
 st.subheader('PESERTA PER STATUS')
 peserta_per_unit = (
