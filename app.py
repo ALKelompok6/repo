@@ -83,10 +83,10 @@ with col1:
     st.subheader(f"{total_rencana:,}")
 with col2:
     st.subheader('TOTAL REALISASI PESERTA')
-    st.subheader(f"{total_jamlator:,}")
+    st.subheader(f"{total_peserta:,}")
 with col3:
     st.subheader('TOTAL JAMLATOR')
-    st.subheader(f"{total_peserta:,}")
+    st.subheader(f"{total_jamlator:,}")
 with col4:
     st.subheader('KESESUAIAN MATERI')
     st.subheader(f"{rerata_seseusaian_materi:,} {indeks_bintang}")
