@@ -137,7 +137,7 @@ peserta_per_unit = (
 df_selection.groupby(by=['NAMA']).sum()[['PESERTA SETJEN',	'PESERTA ITJEN',	'PESERTA DJA',	'PESERTA DJP',	'PESERTA DJBC',	'PESERTA DJPb',	'PESERTA DJPK',	'PESERTA DJKN',	'PESERTA DJPPR',	'PESERTA BKF',	'PESERTA BPPK',	'PESERTA LNSW',	'PESERTA KSSK']].sort_values(by='NAMA')
 )
 st.dataframe(peserta_per_unit)
-st.altair_chart(data=peserta_per_unit, x=['NAMA'], y=['PESERTA SETJEN',	'PESERTA ITJEN',	'PESERTA DJA',	'PESERTA DJP',	'PESERTA DJBC',	'PESERTA DJPb',	'PESERTA DJPK',	'PESERTA DJKN',	'PESERTA DJPPR',	'PESERTA BKF',	'PESERTA BPPK',	'PESERTA LNSW',	'PESERTA KSSK'], width=0, height=0, use_container_width=True)
+st.area_chart(data=peserta_per_unit, x=['NAMA'], y=['PESERTA SETJEN',	'PESERTA ITJEN',	'PESERTA DJA',	'PESERTA DJP',	'PESERTA DJBC',	'PESERTA DJPb',	'PESERTA DJPK',	'PESERTA DJKN',	'PESERTA DJPPR',	'PESERTA BKF',	'PESERTA BPPK',	'PESERTA LNSW',	'PESERTA KSSK'], width=0, height=0, use_container_width=True)
 
 st.subheader('PESERTA PER JAMLATOR')
 peserta_per_unit = (
