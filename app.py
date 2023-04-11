@@ -112,10 +112,10 @@ st.line_chart(data=realisasi_jamlator_by_nama, x=['BULAN'], y=['RENCANA JAMLATOR
 
 st.subheader('PERSENTASE KEIKUTSERTAAN DAN REALISASI JAMLATOR')
 persentase_keikutsertaan_by_bulan = (
-df_selection.groupby(by=['BULAN']).mean()[['PERSENTASE KEIKUTSERTAAN', 'PERSENTASE JAMLATOR']].sort_values(by='BULAN')
+round(df_selection.groupby(by=['BULAN']).mean()['PERSENTASE KEIKUTSERTAAN'].sort_values(by='BULAN'), 2)
 )
 st.dataframe(persentase_keikutsertaan_by_bulan)
-st.bar_chart(data=persentase_keikutsertaan_by_bulan, x=['BULAN'], y=['PERSENTASE KEIKUTSERTAAN', 'PERSENTASE JAMLATOR'], width=0, height=0, use_container_width=True)
+st.bar_chart(data=persentase_keikutsertaan_by_bulan, x=['BULAN'], y=['PERSENTASE KEIKUTSERTAAN'], width=0, height=0, use_container_width=True)
 
 
 st.subheader('INDEKS KESESUAIAN MATERI')
