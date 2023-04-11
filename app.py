@@ -98,7 +98,7 @@ st.dataframe(df_selection[['NAMA PELATIHAN', 'TAHUN', 'KESESUAIAN MATERI',	'HARI
 #RENCANA VS REALISASI PESERTA PER PELATIHAN
 st.subheader('RENCANA VS REALISASI PESERTA PER PELATIHAN')
 realisasi_peserta_by_nama = (
-df_selection.groupby(by=['NAMA BULAN']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']]
+df_selection.groupby(by=['NAMA BULAN']).sum()[['RENCANA PESERTA', 'TOTAL REALISASI PESERTA']].sort_values(by='BULAN')
 )
 st.dataframe(realisasi_peserta_by_nama)
 st.line_chart(data=realisasi_peserta_by_nama, x=['NAMA BULAN'], y=['RENCANA PESERTA', 'TOTAL REALISASI PESERTA'], width=0, height=0, use_container_width=True)
@@ -112,7 +112,7 @@ st.line_chart(data=realisasi_jamlator_by_nama, x=['NAMA BULAN'], y=['RENCANA JAM
 
 st.subheader('INDEKS KESESUAIAN MATERI')
 kesesuaian_materi = (
-round(df_selection.groupby(by=['NAMA BULAN']).mean()[['KESESUAIAN MATERI']].sort_values(by='NAMA BULAN'), 2)
+round(df_selection.groupby(by=['NAMA BULAN']).mean()[['KESESUAIAN MATERI']].sort_values(by='BULAN'), 2)
 )
 st.dataframe(kesesuaian_materi)
 st.bar_chart(data=kesesuaian_materi, x=['NAMA BULAN'], y=['KESESUAIAN MATERI'], width=0, height=0, use_container_width=True)
